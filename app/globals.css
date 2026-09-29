@@ -1,0 +1,188 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+
+@font-face {
+  font-family: "Haffer";
+  src: url("/fonts/HafferXH-Regular.otf") format("opentype");
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Haffer";
+  src: url("/fonts/HafferXH-Medium.otf") format("opentype");
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Haffer";
+  src: url("/fonts/HafferXH-SemiBold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 600;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Haffer";
+  src: url("/fonts/HafferXH-Bold.otf") format("opentype");
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+}
+
+@layer components {
+  .pm-header {
+    position: relative;
+    z-index: 50;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background: transparent;
+  }
+
+  .pm-container {
+    width: min(calc(100% - 48px), 1280px);
+    margin-inline: auto;
+  }
+
+  .pm-nav {
+    display: flex;
+    min-height: 88px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .pm-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #0a0a0a;
+    font-size: 1.2rem;
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    text-decoration: none;
+  }
+
+  .pm-nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+  }
+
+  .pm-nav-links a {
+    position: relative;
+    padding-block: 6px;
+    color: #525252;
+    font-size: 0.95rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .pm-nav-links a:hover,
+  .pm-nav-links a.active {
+    color: #0a0a0a;
+  }
+
+  .pm-nav-actions {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .pm-nav-cta {
+    display: inline-flex;
+    height: 42px;
+    align-items: center;
+    gap: 12px;
+    border: 0;
+    border-radius: 999px;
+    background: #0a0a0a;
+    padding: 0 6px 0 20px;
+    color: #ffffff;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .pm-nav-cta:hover {
+    transform: translateY(-1px);
+    background: #262626;
+  }
+
+  .pm-nav-cta span:last-child {
+    display: grid;
+    width: 30px;
+    height: 30px;
+    place-items: center;
+    border-radius: 999px;
+    background: rgb(255 255 255 / 15%);
+    transition: transform 0.2s ease;
+  }
+
+  .pm-nav-cta:hover span:last-child {
+    transform: translateX(2px);
+  }
+
+  .pm-menu {
+    display: none;
+    width: 42px;
+    height: 42px;
+    place-items: center;
+    border: 1px solid #ececec;
+    border-radius: 14px;
+    background: #ffffff;
+    color: #0a0a0a;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 900px) {
+  .pm-nav {
+    min-height: 76px;
+  }
+
+  .pm-nav-links {
+    position: absolute;
+    top: 82px;
+    right: 20px;
+    left: 20px;
+    z-index: 10;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 4px;
+    border: 1px solid #ececec;
+    border-radius: 12px;
+    background: #ffffff;
+    padding: 10px;
+  }
+
+  .pm-nav-links.open {
+    display: flex;
+  }
+
+  .pm-nav-links a {
+    border-radius: 8px;
+    padding: 12px 14px;
+  }
+
+  .pm-nav-links a:hover,
+  .pm-nav-links a.active {
+    background: #f5f5f5;
+  }
+
+  .pm-menu {
+    display: grid;
+  }
+}
+
+@media (max-width: 520px) {
+  .pm-nav-cta {
+    padding-left: 16px;
+  }
+}
